@@ -4,3 +4,4 @@
 fastapi
 uvicorn
 {% if cookiecutter.use_requests == 'y' %}requests{% endif %}
+{% if cookiecutter.use_cryptography == 'y' %}cryptography{% endif %}

@@ -7,7 +7,8 @@
 	"app_description": "A short description",
 	"app_version": "0.1.0",
     "app_documents_location": ["readthedocs.io", "github-pages"],
-    "use_requests": "no",
+    "use_requests": "n",
+    "use_cryptography": "n",
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-fastapi-openapi",
     "__template_version": "1.0.0"
 }
