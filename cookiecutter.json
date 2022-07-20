@@ -1,0 +1,13 @@
+{
+	"full_name": "Your Full Name",
+	"email": "Your E-Mail Address",
+	"git_username": "Your GitHub Username",
+    "git_repo_name": "The Repository Name",
+    "git_url": "The GIT URL",
+	"app_description": "A short description",
+	"app_version": "0.1.0",
+    "app_documents_location": ["readthedocs.io", "github-pages"],
+    "use_requests": "no",
+    "__template_repo": "https://github.com/btr1975/cookiecutter-python-fastapi-openapi",
+    "__template_version": "1.0.0"
+}
