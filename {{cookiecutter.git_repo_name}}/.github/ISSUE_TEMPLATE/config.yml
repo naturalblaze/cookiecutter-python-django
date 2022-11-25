@@ -1,0 +1,12 @@
+---
+blank_issues_enabled: true
+contact_links:
+  - name: Python Information
+    url: https://www.python.org/
+    about: Python Org Website
+  - name: FastAPI Information
+    url: https://fastapi.tiangolo.com/
+    about: FastAPI Website
+  - name: pydantic Information
+    url: https://pydantic-docs.helpmanual.io/
+    about: pydantic Website
