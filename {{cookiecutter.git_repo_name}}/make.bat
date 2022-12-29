@@ -1,7 +1,7 @@
 @ECHO OFF
 REM Makefile for project needs
 REM Author: Ben Trachtenberg
-REM Version: 1.0.1
+REM Version: 1.0.2
 REM
 
 IF "%1" == "app-run" (
@@ -10,10 +10,7 @@ IF "%1" == "app-run" (
 )
 
 IF "%1" == "coverage" (
-    coverage erase
-    coverage run
-    coverage report
-    coverage html
+    pytest --cov --cov-report=html -vvv
     GOTO END
 )
 
@@ -23,17 +20,12 @@ IF "%1" == "pylint" (
 )
 
 IF "%1" == "pytest" (
-    pytest -vvv
+    pytest --cov -vvv
     GOTO END
 )
 
 IF "%1" == "pdf" (
     sphinx-build -b rinoh ./docs ./docs/_build/pdf
-    GOTO END
-)
-
-IF "%1" == "word" (
-    sphinx-build -b docx ./docs ./docs/_build/word
     GOTO END
 )
 
@@ -50,7 +42,6 @@ IF "%1" == "gh-pages" (
 @ECHO     pylint    To run pylint
 @ECHO     pytest    To run pytest with verbose option
 @ECHO     pdf       To create PDF Docs
-@ECHO     word      To create Word Docs
 {% if cookiecutter.app_documents_location == 'github-pages' %}@ECHO     gh-pages  To create the GitHub pages{% endif %}
 
 :END
