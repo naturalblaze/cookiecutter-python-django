@@ -1,11 +1,11 @@
 @ECHO OFF
 REM Makefile for project needs
 REM Author: Ben Trachtenberg
-REM Version: 1.0.2
+REM Version: 1.0.3
 REM
 
-IF "%1" == "app-run" (
-    python app_run.py
+IF "%1" == "build" (
+    python -m build
     GOTO END
 )
 
@@ -15,7 +15,7 @@ IF "%1" == "coverage" (
 )
 
 IF "%1" == "pylint" (
-    pylint modules\
+    pylint {{cookiecutter.__app_name}}\
     GOTO END
 )
 
@@ -37,7 +37,7 @@ IF "%1" == "gh-pages" (
 {% endif %}
 
 @ECHO make options
-@ECHO     app-run   To run the app
+@ECHO     build     To build a distribution
 @ECHO     coverage  To run coverage and display ASCII and output to htmlcov
 @ECHO     pylint    To run pylint
 @ECHO     pytest    To run pytest with verbose option

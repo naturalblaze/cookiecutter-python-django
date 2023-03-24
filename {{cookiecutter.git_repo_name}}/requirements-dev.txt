@@ -2,6 +2,8 @@
 # NOTICE THE FIRST LINE INCLUDES THE requirements.txt
 #
 -r requirements.txt
+build
+tomli
 pytest-cov
 sphinx
 pylint
@@ -9,4 +11,5 @@ rinohtype
 myst-parser
 sphinx_rtd_theme
 sphinxcontrib-mermaid
+twine
 {% if cookiecutter.use_requests == 'y' %}requests-mock{% endif %}

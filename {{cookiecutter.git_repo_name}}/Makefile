@@ -1,27 +1,27 @@
 # Makefile for project needs
 # Author: Ben Trachtenberg
-# Version: 1.0.2
+# Version: 1.0.4
 #
 
-.PHONY: info app-run coverage pylint pytest gh-pages pdf
+.PHONY: info app-run coverage pylint pytest pdf gh-pages build
 
 info:
 	@echo "make options"
-	@echo "    app-run   To run the app"
+	@echo "    build     To build a distribution"
 	@echo "    coverage  To run coverage and display ASCII and output to htmlcov"
 	@echo "    pylint    To run pylint"
 	@echo "    pytest    To run pytest with verbose option"
 	@echo "    pdf       To create PDF Docs"
 {% if cookiecutter.app_documents_location == 'github-pages' %}	@echo "    gh-pages  To create the GitHub pages"{% endif %}
 
-app-run:
-	@python app_run.py
+build:
+	@python -m build
 
 coverage:
 	@pytest --cov --cov-report=html -vvv
 
 pylint:
-	@pylint modules/
+	@pylint {{cookiecutter.__app_name}}/
 
 pytest:
 	@pytest --cov -vvv
