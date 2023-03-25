@@ -50,6 +50,10 @@ include = [
     "{{cookiecutter.__app_name}}*",
 ]
 
+# Add or remove file extensions to include the data
+[tool.setuptools.package-data]
+"*" = ["*.txt", "*.rst"]
+
 [tool.setuptools]
 zip-safe = false
 
