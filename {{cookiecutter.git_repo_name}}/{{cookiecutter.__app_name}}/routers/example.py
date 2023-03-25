@@ -3,7 +3,7 @@ This is an example FIXME: Example delete this
 """
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel  # pylint: disable=no-name-in-module
-from {{cookiecutter.__app_name}}.util.schemas import ErrorSchema
+from {{cookiecutter.__app_name}}.utils.schemas import ErrorSchema
 
 
 router = APIRouter(

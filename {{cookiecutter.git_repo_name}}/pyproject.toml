@@ -45,10 +45,12 @@ Tracker = "{{ cookiecutter.git_url }}/issues"
 [project.scripts]
 {{ cookiecutter.git_repo_name }}-cli = "{{cookiecutter.__app_name}}:cli"
 
-[tool.setuptools]
-packages = [
-    "{{cookiecutter.__app_name}}",
+[tool.setuptools.packages.find]
+include = [
+    "{{cookiecutter.__app_name}}*",
 ]
+
+[tool.setuptools]
 zip-safe = false
 
 [tool.setuptools.dynamic]
