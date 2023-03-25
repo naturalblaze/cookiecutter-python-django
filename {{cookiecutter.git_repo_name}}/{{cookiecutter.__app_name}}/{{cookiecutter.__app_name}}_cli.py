@@ -18,12 +18,15 @@ def cli() -> None:
     # This is the sub parser to print start
     arg_parser_start = subparsers.add_parser('start', help='Start FastAPI')
     arg_parser_start.set_defaults(which_sub='start')
+    arg_parser_start.add_argument('-p', '--port', help='TCP Port')
+    arg_parser_start.add_argument('-r', '--reload', action='store_true', help='Allow Auto Reload')
 
     args = arg_parser.parse_args()
 
     try:
         if args.which_sub == 'start':
-            uvicorn.run('{{cookiecutter.git_repo_name}}:web_app', reload=True, host='0.0.0.0', port=8080)
+            uvicorn.run('{{cookiecutter.git_repo_name}}:web_app', reload=args.reload,
+                        host='0.0.0.0', port=int(args.port))
 
     except AttributeError as error:
         print(f'\n !!! {error} !!! \n')
