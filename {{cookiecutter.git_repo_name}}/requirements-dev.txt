@@ -11,5 +11,6 @@ rinohtype
 myst-parser
 sphinx_rtd_theme
 sphinxcontrib-mermaid
+httpx
 twine
 {% if cookiecutter.use_requests == 'y' %}requests-mock{% endif %}
