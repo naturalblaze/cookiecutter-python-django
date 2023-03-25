@@ -2,7 +2,10 @@
 FastAPI WebApp
 """
 from fastapi import FastAPI
-from modules.version import __title__, __version__, __description__
+from {{cookiecutter.__app_name}}.version import __version__
+from {{cookiecutter.__app_name}}.routers import example
 
 
-web_app = FastAPI(title=__title__, version=__version__, description=__description__)
+web_app = FastAPI(title='{{ cookiecutter.git_repo_name }}', version=__version__,
+                  description='{{ cookiecutter.app_description }}')
+web_app.include_router(example.router)

@@ -25,7 +25,7 @@ def cli() -> None:
 
     try:
         if args.which_sub == 'start':
-            uvicorn.run('{{cookiecutter.git_repo_name}}:web_app', reload=args.reload,
+            uvicorn.run('{{cookiecutter.__app_name}}:web_app', reload=args.reload,
                         host='0.0.0.0', port=int(args.port))
 
     except AttributeError as error:
