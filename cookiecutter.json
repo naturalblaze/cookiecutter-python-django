@@ -9,11 +9,13 @@
     "app_documents_location": ["readthedocs.io", "github-pages"],
     "app_documents_theme": ["sphinx_rtd_theme", "alabaster"],
     "__app_name": "{{ cookiecutter.git_repo_name.lower().replace(' ', '_').replace('-', '_') }}",
-    "use_requests": "n",
-    "use_cryptography": "n",
+    "use_requests": ["n", "y"],
+    "use_cryptography": ["n", "y"],
+    "include_webpages": ["n", "y"],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-fastapi-openapi",
     "__template_version": "1.0.5",
     "_copy_without_render": [
+        "{{cookiecutter.__app_name}}/templates",
         ".github"
     ]
 }

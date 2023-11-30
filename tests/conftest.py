@@ -9,7 +9,20 @@ sys.path.append(os.path.join(base_path))
 def bake_project_api_only() -> dict:
     options = {
         'git_repo_name': 'api-only',
-        'include_cli': 'y',
+        'include_webpages': 'n',
+        'email': 'name@example.com',
+        'git_username': 'some-username',
+        'git_url': 'https://github.com/some-username/python-with-cli',
+    }
+
+    return options
+
+
+@pytest.fixture
+def bake_project_api_with_webpages() -> dict:
+    options = {
+        'git_repo_name': 'api-with-webpages',
+        'include_webpages': 'y',
         'email': 'name@example.com',
         'git_username': 'some-username',
         'git_url': 'https://github.com/some-username/python-with-cli',

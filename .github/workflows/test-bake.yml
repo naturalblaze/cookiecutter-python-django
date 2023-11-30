@@ -46,4 +46,4 @@ jobs:
         pip install -r requirements-dev.txt
     - name: Run Testing
       run: |
-        pytest --ignore="{{cookiecutter.git_repo_name}}\tests" -vvv
+        pytest -vvv
