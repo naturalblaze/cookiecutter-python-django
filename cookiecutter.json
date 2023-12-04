@@ -1,9 +1,9 @@
 {
-	"full_name": "Your Full Name",
-	"email": "Your E-Mail Address",
-	"git_username": "Your GitHub Username",
-    "git_repo_name": "The Repository Name",
-    "git_url": "The GIT URL",
+	"full_name": "Firstname Lastname",
+	"email": "example@example.com",
+	"git_username": "some-username",
+    "git_repo_name": "some-repo-name",
+    "git_url": "https://github.com/some-username/some-repo-name",
 	"app_description": "A short description",
 	"app_version": "0.1.0",
     "app_documents_location": ["readthedocs.io", "github-pages"],
@@ -13,9 +13,44 @@
     "use_cryptography": ["n", "y"],
     "include_webpages": ["n", "y"],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-fastapi-openapi",
-    "__template_version": "1.0.5",
+    "__template_version": "1.0.6",
+    "_new_lines":"\n",
     "_copy_without_render": [
         "{{cookiecutter.__app_name}}/templates",
         ".github"
-    ]
+    ],
+        "__prompts__": {
+        "full_name": "Your Full Name",
+        "email": "Your E-Mail Address",
+        "git_username": "Your GitHub Username",
+        "git_repo_name": "The Repository Name",
+        "git_url": "The full GIT URL",
+        "app_description": "A short description",
+        "app_version": "Library Version",
+        "app_documents_location": {
+            "__prompt__": "Where will the documentation be hosted",
+            "readthedocs.io": "Read the Docs",
+            "github-pages": "GitHub Pages"
+        },
+        "app_documents_theme": {
+            "__prompt__": "Which theme will be used for the documentation",
+            "sphinx_rtd_theme": "Read the Docs Theme",
+            "alabaster": "Alabaster Theme"
+        },
+        "use_requests": {
+            "__prompt__": "Will you use the requests library",
+            "n": "No",
+            "y": "Yes"
+        },
+        "use_cryptography": {
+            "__prompt__": "Will you use the cryptography library",
+            "n": "No",
+            "y": "Yes"
+        },
+        "include_webpages": {
+            "__prompt__": "Include webpages starter",
+            "n": "No",
+            "y": "Yes"
+        }
+    }
 }
