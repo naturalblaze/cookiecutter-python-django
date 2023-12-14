@@ -3,13 +3,13 @@ def test_bake_project_api_only(cookies, bake_project_api_only):
 
     assert result.exit_code == 0
     assert result.exception is None
-    assert result.project.basename == 'api-only'
-    assert result.project.isdir()
-    assert result.project.join('README.md').isfile()
-    assert result.project.join('api_only').isdir()
-    assert not result.project.join('api_only', 'static').isdir()
-    assert not result.project.join('api_only', 'templates').isdir()
-    assert not result.project.join('api_only', 'routers', 'hello_world.py').isfile()
+    assert result.project_path.name == 'api-only'
+    assert result.project_path.is_dir()
+    assert result.project_path.joinpath('README.md').is_file()
+    assert result.project_path.joinpath('api_only').is_dir()
+    assert not result.project_path.joinpath('api_only', 'static').is_dir()
+    assert not result.project_path.joinpath('api_only', 'templates').is_dir()
+    assert not result.project_path.joinpath('api_only', 'routers', 'hello_world.py').is_file()
 
 
 def test_bake_project_api_with_webpages(cookies, bake_project_api_with_webpages):
@@ -17,10 +17,10 @@ def test_bake_project_api_with_webpages(cookies, bake_project_api_with_webpages)
 
     assert result.exit_code == 0
     assert result.exception is None
-    assert result.project.basename == 'api-with-webpages'
-    assert result.project.isdir()
-    assert result.project.join('README.md').isfile()
-    assert result.project.join('api_with_webpages').isdir()
-    assert result.project.join('api_with_webpages', 'static').isdir()
-    assert result.project.join('api_with_webpages', 'templates').isdir()
-    assert result.project.join('api_with_webpages', 'routers', 'hello_world.py').isfile()
+    assert result.project_path.name == 'api-with-webpages'
+    assert result.project_path.is_dir()
+    assert result.project_path.joinpath('README.md').is_file()
+    assert result.project_path.joinpath('api_with_webpages').is_dir()
+    assert result.project_path.joinpath('api_with_webpages', 'static').is_dir()
+    assert result.project_path.joinpath('api_with_webpages', 'templates').is_dir()
+    assert result.project_path.joinpath('api_with_webpages', 'routers', 'hello_world.py').is_file()
