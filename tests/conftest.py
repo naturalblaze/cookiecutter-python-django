@@ -6,7 +6,7 @@ sys.path.append(os.path.join(base_path))
 
 
 @pytest.fixture
-def bake_project_api_only() -> dict:
+def bake_project_api_only_podman() -> dict:
     options = {
         'git_repo_name': 'api-only',
         'include_webpages': 'n',
@@ -19,13 +19,41 @@ def bake_project_api_only() -> dict:
 
 
 @pytest.fixture
-def bake_project_api_with_webpages() -> dict:
+def bake_project_api_only_docker() -> dict:
+    options = {
+        'git_repo_name': 'api-only',
+        'include_webpages': 'n',
+        'email': 'name@example.com',
+        'git_username': 'some-username',
+        'git_url': 'https://github.com/some-username/python-with-cli',
+        'container_runtime': 'docker',
+    }
+
+    return options
+
+
+@pytest.fixture
+def bake_project_api_with_webpages_podman() -> dict:
     options = {
         'git_repo_name': 'api-with-webpages',
         'include_webpages': 'y',
         'email': 'name@example.com',
         'git_username': 'some-username',
         'git_url': 'https://github.com/some-username/python-with-cli',
+    }
+
+    return options
+
+
+@pytest.fixture
+def bake_project_api_with_webpages_docker() -> dict:
+    options = {
+        'git_repo_name': 'api-with-webpages',
+        'include_webpages': 'y',
+        'email': 'name@example.com',
+        'git_username': 'some-username',
+        'git_url': 'https://github.com/some-username/python-with-cli',
+        'container_runtime': 'docker',
     }
 
     return options

@@ -27,6 +27,11 @@ build-container:
 	@cd containers && podman build --ssh=default -t {{ cookiecutter.git_repo_name }}:latest -f Containerfile
 {% endif %}
 
+{% if cookiecutter.container_runtime == "docker" %}
+build-container:
+	@cd containers && docker build --ssh=default -t {{ cookiecutter.git_repo_name }}:latest -f Dockerfile
+{% endif %}
+
 coverage:
 	@pytest --cov --cov-report=html -vvv
 
@@ -55,4 +60,15 @@ stop-container:
 
 remove-container:
 	@podman rm {{ cookiecutter.git_repo_name }}
+{% endif %}
+
+{% if cookiecutter.container_runtime == "docker" %}
+start-container:
+	@docker run -itd --name {{ cookiecutter.git_repo_name }} -p 8080:8080 localhost/{{ cookiecutter.git_repo_name }}:latest
+
+stop-container:
+	@docker stop {{ cookiecutter.git_repo_name }}
+
+remove-container:
+	@docker rm {{ cookiecutter.git_repo_name }}
 {% endif %}
