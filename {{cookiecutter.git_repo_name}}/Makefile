@@ -24,12 +24,12 @@ build:
 
 {% if cookiecutter.container_runtime == "podman" %}
 build-container:
-	@cd containers && podman build --ssh=default -t {{ cookiecutter.git_repo_name }}:latest -f Containerfile
+	@cd containers && podman build --ssh=default –build-arg=build_branch=main -t {{ cookiecutter.git_repo_name }}:latest -f Containerfile
 {% endif %}
 
 {% if cookiecutter.container_runtime == "docker" %}
 build-container:
-	@cd containers && docker build --ssh=default -t {{ cookiecutter.git_repo_name }}:latest -f Dockerfile
+	@cd containers && docker build --ssh=default -t –build-arg=build_branch=main {{ cookiecutter.git_repo_name }}:latest -f Dockerfile
 {% endif %}
 
 coverage:

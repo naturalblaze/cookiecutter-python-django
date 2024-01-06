@@ -9,8 +9,12 @@ RUN ${PIP_INSTALL_COMMAND} --upgrade pip setuptools wheel \
 
 FROM base AS final
 
+ARG build_branch=main
+
+ENV BUILD_BRANCH=${build_branch}
+
 RUN --mount=type=ssh,required=true  \
-    ${PIP_INSTALL_COMMAND} git+ssh://git@github.com/{{ cookiecutter.git_username }}/{{ cookiecutter.git_repo_name }}
+    ${PIP_INSTALL_COMMAND} git+ssh://git@github.com/{{ cookiecutter.git_username }}/{{ cookiecutter.git_repo_name }}@${BUILD_BRANCH}
 
 EXPOSE 8080/tcp
 
