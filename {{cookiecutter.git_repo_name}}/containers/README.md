@@ -14,3 +14,7 @@
 * [Podman Desktop](https://podman-desktop.io/)
 * [docker](https://www.docker.com/)
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+### My Opinion
+
+I prefer podman over docker.
