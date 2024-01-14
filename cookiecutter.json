@@ -14,7 +14,7 @@
     "include_webpages": ["n", "y"],
     "container_runtime": ["podman", "docker"],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-fastapi-openapi",
-    "__template_version": "1.0.7",
+    "__template_version": "1.0.8",
     "_new_lines":"\n",
     "_copy_without_render": [
         "{{cookiecutter.__app_name}}/templates",
