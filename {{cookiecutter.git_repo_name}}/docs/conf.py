@@ -15,6 +15,7 @@ import sys
 import tomli
 base_path = os.path.split(os.path.join(os.path.abspath(os.path.dirname(__name__))))[0]
 sys.path.append(base_path)
+sys.path.append(os.path.join(base_path, 'docs', '_ext'))
 
 # Reads version.py and converts to a dict of keys
 version_py = {}
@@ -56,6 +57,7 @@ extensions = ['sphinx.ext.todo',
               'sphinx.ext.autodoc',
               'myst_parser',
               'sphinxcontrib.mermaid',
+              'jinja2_rendering',  # My custom extension
 ]
 
 # Add any paths that contain templates here, relative to this directory.
