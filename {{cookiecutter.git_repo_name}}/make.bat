@@ -1,7 +1,7 @@
 @ECHO OFF
 REM Makefile for project needs
 REM Author: Ben Trachtenberg
-REM Version: 1.0.4
+REM Version: 1.0.5
 REM
 
 IF "%1" == "build" (
@@ -29,6 +29,11 @@ IF "%1" == "dev-run" (
     GOTO END
 )
 
+IF "%1" == "format" (
+    black {{cookiecutter.__app_name}}/
+    GOTO END
+)
+
 {% if cookiecutter.app_documents_location == 'github-pages' %}
 IF "%1" == "gh-pages" (
     rmdir /s /q docs\source\code
@@ -42,6 +47,7 @@ IF "%1" == "gh-pages" (
 @ECHO     build     To build a distribution
 @ECHO     coverage  To run coverage and display ASCII and output to htmlcov
 @ECHO     dev-run   To run the app
+@ECHO     format    To format the code with black
 @ECHO     pylint    To run pylint
 @ECHO     pytest    To run pytest with verbose option
 {% if cookiecutter.app_documents_location == 'github-pages' %}@ECHO     gh-pages  To create the GitHub pages{% endif %}

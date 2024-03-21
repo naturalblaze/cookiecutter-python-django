@@ -1,9 +1,9 @@
 # Makefile for project needs
 # Author: Ben Trachtenberg
-# Version: 1.0.6
+# Version: 1.0.7
 #
 
-.PHONY: info build build-container coverage pylint pytest gh-pages build dev-run start-container \
+.PHONY: info build build-container coverage format pylint pytest gh-pages build dev-run start-container \
 	stop-container remove-container
 
 info:
@@ -12,6 +12,7 @@ info:
 	@echo "    build-container     To build a container image"
 	@echo "    coverage            To run coverage and display ASCII and output to htmlcov"
 	@echo "    dev-run             To run the app"
+	@echo "    format              To format the code with black"
 	@echo "    pylint              To run pylint"
 	@echo "    pytest              To run pytest with verbose option"
 	@echo "    start-container     To start the container"
@@ -34,6 +35,9 @@ build-container:
 
 coverage:
 	@pytest --cov --cov-report=html -vvv
+
+format:
+	@black {{cookiecutter.__app_name}}/
 
 pylint:
 	@pylint {{cookiecutter.__app_name}}/
