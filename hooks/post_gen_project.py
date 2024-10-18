@@ -1,6 +1,7 @@
 """
 post generation hooks for cookiecutter to remove unneeded files
 """
+
 from typing import List
 import os
 import shutil
@@ -19,6 +20,7 @@ REMOVE_PATHS_DOCKER = [
     '{% if cookiecutter.container_runtime == "docker" %}containers/Containerfile{% endif %}',
 ]
 
+
 def remove_paths(paths_to_remove: List[str]) -> None:
     """Remove files and directories
 
@@ -35,7 +37,7 @@ def remove_paths(paths_to_remove: List[str]) -> None:
                 shutil.rmtree(path)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     remove_paths(REMOVE_PATHS_NO_WEBPAGES)
     remove_paths(REMOVE_PATHS_PODMAN)
     remove_paths(REMOVE_PATHS_DOCKER)
