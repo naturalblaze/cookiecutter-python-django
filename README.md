@@ -22,14 +22,30 @@ pip install cookiecutter
 
 * Use the latest
 
+### HTTPS
+
 ```text
 cookiecutter https://github.com/btr1975/cookiecutter-python-fastapi-openapi
 ```
 
+### SSH
+
+```text
+cookiecutter git@github.com:btr1975/cookiecutter-python-fastapi-openapi
+```
+
 * Use a specific version
+
+### HTTPS
 
 ```text
 cookiecutter https://github.com/btr1975/cookiecutter-python-fastapi-openapi -c 1.0.1
+```
+
+### SSH
+
+```text
+cookiecutter git@github.com:btr1975/cookiecutter-python-fastapi-openapi -c 1.0.1
 ```
 
 4. Now you will be asked a series of questions. This is an example
