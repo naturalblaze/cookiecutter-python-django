@@ -3,7 +3,7 @@
 # Version: 1.0.0
 #
 
-.PHONY: all info coverage pytest black
+.PHONY: all info coverage pytest black security
 
 info:
 	@echo "make options"
@@ -11,7 +11,7 @@ info:
 	@echo "    coverage  To run coverage and display ASCII and output to htmlcov"
 	@echo "    pytest    To run pytest with verbose option"
 
-all: coverage black pylint
+all: black pylint coverage security vulnerabilities
 
 coverage:
 	@pytest --cov --cov-report=html -vvv
@@ -25,3 +25,9 @@ pylint:
 black:
 	@black hooks/
 	@black tests/
+
+security:
+	@bandit -c pyproject.toml -r .
+
+vulnerabilities:
+	@pip-audit -r requirements.txt

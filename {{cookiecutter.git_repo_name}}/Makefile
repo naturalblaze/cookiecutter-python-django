@@ -4,7 +4,7 @@
 #
 
 .PHONY: all info build build-container coverage format pylint pytest gh-pages build dev-run start-container \
-	stop-container remove-container check-vuln
+	stop-container remove-container check-vuln check-security
 
 info:
 	@echo "make options"
@@ -12,6 +12,7 @@ info:
 	@echo "    build               To build a distribution"
 	@echo "    build-container     To build a container image"
 	@echo "    check-vuln          To check for vulnerabilities in the dependencies"
+	@echo "    check-security      To check for vulnerabilities in the code"
 	@echo "    coverage            To run coverage and display ASCII and output to htmlcov"
 	@echo "    dev-run             To run the app"
 	@echo "    format              To format the code with black"
@@ -22,7 +23,7 @@ info:
 	@echo "    remove-container    To remove the container"
 {% if cookiecutter.app_documents_location == 'github-pages' %}	@echo "    gh-pages           To create the GitHub pages"{% endif %}
 
-all: coverage format pylint check-vuln
+all: format pylint coverage check-security check-vuln
 
 build:
 	@python -m build
@@ -84,3 +85,6 @@ remove-container:
 
 check-vuln:
 	@pip-audit -r requirements.txt
+
+check-security:
+	@bandit -c pyproject.toml -r .
