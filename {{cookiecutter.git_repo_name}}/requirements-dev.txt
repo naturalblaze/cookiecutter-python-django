@@ -15,4 +15,5 @@ sphinxcontrib-mermaid
 httpx
 twine
 bandit
+ruff
 {% if cookiecutter.use_requests == 'y' %}requests-mock{% endif %}

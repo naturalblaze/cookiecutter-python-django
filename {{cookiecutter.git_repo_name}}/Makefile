@@ -18,6 +18,8 @@ info:
 	@echo "    format              To format the code with black"
 	@echo "    pylint              To run pylint"
 	@echo "    pytest              To run pytest with verbose option"
+	@echo "    ruff-format         To run ruff formatter"
+	@echo "    ruff-lint           To run ruff linter"
 	@echo "    start-container     To start the container"
 	@echo "    stop-container      To stop the container"
 	@echo "    remove-container    To remove the container"
@@ -45,7 +47,7 @@ pytest:
 	@pytest --cov -vvv
 
 dev-run:
-	@python -c "from {{cookiecutter.__app_name}} import cli;cli()" start -p 8080 -r
+	@python manage.py runserver
 
 check-vuln:
 	@pip-audit -r requirements.txt
@@ -79,6 +81,13 @@ pylint:
 
 pytest:
 	@uv run pytest --cov -vvv
+
+ruff-format:
+	@uv run ruff format {{cookiecutter.__app_name}}/
+	@uv run ruff format tests/
+
+ruff-lint:
+	@uv run ruff check {{cookiecutter.__app_name}}/
 
 dev-run:
 	@uv run python -c "from {{cookiecutter.__app_name}} import cli;cli()" start -p 8080 -r
