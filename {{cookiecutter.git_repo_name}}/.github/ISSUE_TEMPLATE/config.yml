@@ -4,9 +4,6 @@ contact_links:
   - name: Python Information
     url: https://www.python.org/
     about: Python Org Website
-  - name: FastAPI Information
-    url: https://fastapi.tiangolo.com/
-    about: FastAPI Website
-  - name: pydantic Information
-    url: https://pydantic-docs.helpmanual.io/
-    about: pydantic Website
+  - name: Django Information
+    url: https://docs.djangoproject.com/
+    about: Django Website

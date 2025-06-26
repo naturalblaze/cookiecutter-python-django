@@ -25,4 +25,5 @@ RUN --mount=type=ssh,required=true  \
 
 EXPOSE 8080/tcp
 
+# Need to change this for django
 ENTRYPOINT ["{{ cookiecutter.git_repo_name }}-cli", "start", "-p", "8080"]

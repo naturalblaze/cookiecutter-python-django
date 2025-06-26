@@ -89,6 +89,7 @@ ruff-format:
 ruff-lint:
 	@uv run ruff check {{cookiecutter.__app_name}}/
 
+# Need to change for django
 dev-run:
 	@uv run python -c "from {{cookiecutter.__app_name}} import cli;cli()" start -p 8080 -r
 

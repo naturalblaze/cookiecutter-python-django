@@ -6,6 +6,7 @@ build
 pip-audit
 black
 tomli
+pytest-django
 pytest-cov
 sphinx
 pylint

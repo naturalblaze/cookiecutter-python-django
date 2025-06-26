@@ -26,15 +26,15 @@
         "uv",
         "pip"
     ],
+    "use_django_markdownx": [
+        "n",
+        "y"
+    ],
     "use_requests": [
         "n",
         "y"
     ],
     "use_cryptography": [
-        "n",
-        "y"
-    ],
-    "include_webpages": [
         "n",
         "y"
     ],
@@ -84,6 +84,11 @@
             "uv": "UV By Astral",
             "pip": "PIP (The built in Python Package Installer)"
         },
+        "use_django_markdownx": {
+            "__prompt__": "Will you use the Django MarkdownX library",
+            "n": "No",
+            "y": "Yes"
+        },
         "use_requests": {
             "__prompt__": "Will you use the requests library",
             "n": "No",
@@ -91,11 +96,6 @@
         },
         "use_cryptography": {
             "__prompt__": "Will you use the cryptography library",
-            "n": "No",
-            "y": "Yes"
-        },
-        "include_webpages": {
-            "__prompt__": "Include webpages starter",
             "n": "No",
             "y": "Yes"
         },

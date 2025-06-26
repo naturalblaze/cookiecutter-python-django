@@ -48,6 +48,12 @@ cookiecutter https://github.com/btr1975/cookiecutter-python-fastapi-openapi -c 1
 cookiecutter git@github.com:btr1975/cookiecutter-python-fastapi-openapi -c 1.0.1
 ```
 
+### UV
+
+```text
+uvx cookiecutter git@github.com:naturalblaze/cookiecutter-python-django.git --checkout develop
+```
+
 4. Now you will be asked a series of questions. This is an example
    **THE QUESTIONS MAY NOT BE THE EXACT FOR THIS COOKIECUTTER**, also if you have downloaded it before
    you will be asked if you want to download it again, always say yes to get the latest version.

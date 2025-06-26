@@ -57,9 +57,8 @@ classifiers = [
 
 {% if cookiecutter.package_manager == 'uv' %}
 dependencies = [
-    "fastapi",
-    "pydantic",
-    "uvicorn",
+    "django",
+    {% if cookiecutter.use_django_markdownx == 'y' %}"django-markdownx",{% endif %}
     {% if cookiecutter.use_requests == 'y' %}"requests",{% endif %}
     {% if cookiecutter.use_cryptography == 'y' %}"cryptography",{% endif %}
 ]
@@ -76,6 +75,7 @@ dev = [
     "sphinxcontrib-mermaid",
     "httpx",
     "bandit",
+    "ruff",
     {% if cookiecutter.use_requests == 'y' %}"requests-mock",{% endif %}
 ]
 {% endif %}
@@ -85,6 +85,7 @@ Documentation = "https://{{ cookiecutter.git_repo_name }}.readthedocs.io/en/late
 Source = "{{ cookiecutter.git_url }}"
 Tracker = "{{ cookiecutter.git_url }}/issues"
 
+# Need to adjust for django
 [project.scripts]
 {{ cookiecutter.git_repo_name }}-cli = "{{cookiecutter.__app_name}}:cli"
 
