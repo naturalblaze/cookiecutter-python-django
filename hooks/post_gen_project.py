@@ -6,11 +6,6 @@ from typing import List
 import os
 import shutil
 
-REMOVE_PATHS_NO_WEBPAGES = [
-    '{% if cookiecutter.include_webpages != "y" %}{{cookiecutter.__app_name}}/routers/hello_world.py{% endif %}',
-    '{% if cookiecutter.include_webpages != "y" %}{{cookiecutter.__app_name}}/static{% endif %}',
-    '{% if cookiecutter.include_webpages != "y" %}{{cookiecutter.__app_name}}/templates{% endif %}',
-]
 
 REMOVE_PATHS_PODMAN = [
     '{% if cookiecutter.container_runtime == "podman" %}containers/Dockerfile{% endif %}',
@@ -50,7 +45,6 @@ def remove_paths(paths_to_remove: List[str]) -> None:
 
 
 if __name__ == "__main__":
-    remove_paths(REMOVE_PATHS_NO_WEBPAGES)
     remove_paths(REMOVE_PATHS_PODMAN)
     remove_paths(REMOVE_PATHS_DOCKER)
     remove_paths(REMOVE_PATHS_UV)
