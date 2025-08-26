@@ -53,6 +53,11 @@ cookiecutter git@github.com:naturalblaze/cookiecutter-python-django.git -c 1.0.1
 uvx cookiecutter git@github.com:naturalblaze/cookiecutter-python-django.git --checkout develop
 ```
 
+### UV with input file
+```text
+uvx cookiecutter -f --no-input --config-file test-repo.yml git@github.com:naturalblaze/cookiecutter-python-django.git --checkout develop
+```
+
 4. Now you will be asked a series of questions. This is an example
    **THE QUESTIONS MAY NOT BE THE EXACT FOR THIS COOKIECUTTER**, also if you have downloaded it before
    you will be asked if you want to download it again, always say yes to get the latest version.
