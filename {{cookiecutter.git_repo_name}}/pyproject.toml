@@ -59,7 +59,7 @@ classifiers = [
 dependencies = [
     "django",
     {% if cookiecutter.use_django_markdownx == 'y' %}"django-markdownx",{% endif %}
-    {% if cookiecutter.use_django-environ == 'y' %}"django-environ",{% endif %}
+    {% if cookiecutter.use_django_environ == 'y' %}"django-environ",{% endif %}
 ]
 
 [dependency-groups]

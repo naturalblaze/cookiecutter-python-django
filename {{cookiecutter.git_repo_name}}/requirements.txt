@@ -3,5 +3,4 @@
 #
 django
 {% if cookiecutter.use_django_markdownx == 'y' %}django-markdownx{% endif %}
-{% if cookiecutter.use_requests == 'y' %}requests{% endif %}
-{% if cookiecutter.use_cryptography == 'y' %}cryptography{% endif %}
+{% if cookiecutter.use_django_environ == 'y' %}django-environ{% endif %}
