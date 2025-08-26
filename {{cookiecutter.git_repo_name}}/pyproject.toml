@@ -59,8 +59,7 @@ classifiers = [
 dependencies = [
     "django",
     {% if cookiecutter.use_django_markdownx == 'y' %}"django-markdownx",{% endif %}
-    {% if cookiecutter.use_requests == 'y' %}"requests",{% endif %}
-    {% if cookiecutter.use_cryptography == 'y' %}"cryptography",{% endif %}
+    {% if cookiecutter.use_django-environ == 'y' %}"django-environ",{% endif %}
 ]
 
 [dependency-groups]
@@ -68,6 +67,7 @@ dev = [
     "black",
     "tomli",
     "pytest-cov",
+    "pytest-django",
     "sphinx",
     "pylint",
     "myst-parser",
@@ -76,7 +76,6 @@ dev = [
     "httpx",
     "bandit",
     "ruff",
-    {% if cookiecutter.use_requests == 'y' %}"requests-mock",{% endif %}
 ]
 {% endif %}
 
@@ -84,10 +83,6 @@ dev = [
 Documentation = "https://{{ cookiecutter.git_repo_name }}.readthedocs.io/en/latest/"
 Source = "{{ cookiecutter.git_url }}"
 Tracker = "{{ cookiecutter.git_url }}/issues"
-
-# Need to adjust for django
-[project.scripts]
-{{ cookiecutter.git_repo_name }}-cli = "{{cookiecutter.__app_name}}:cli"
 
 [tool.setuptools.packages.find]
 include = [

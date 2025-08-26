@@ -1,5 +1,4 @@
-# cookiecutter-python-fastapi-openapi
-
+# cookiecutter-python-django
 | BRANCH | STATUS |
 | ------ |--------|
 | main | [![Unit-Testing, Coverage, Linting](https://github.com/btr1975/cookiecutter-python-fastapi-openapi/actions/workflows/test-bake.yml/badge.svg?branch=main)](https://github.com/btr1975/cookiecutter-python-fastapi-openapi/actions/workflows/test-bake.yml) |
@@ -25,13 +24,13 @@ pip install cookiecutter
 ### HTTPS
 
 ```text
-cookiecutter https://github.com/btr1975/cookiecutter-python-fastapi-openapi
+cookiecutter https://github.com/naturalblaze/cookiecutter-python-django
 ```
 
 ### SSH
 
 ```text
-cookiecutter git@github.com:btr1975/cookiecutter-python-fastapi-openapi
+cookiecutter git@github.com:naturalblaze/cookiecutter-python-django.git
 ```
 
 * Use a specific version
@@ -39,13 +38,13 @@ cookiecutter git@github.com:btr1975/cookiecutter-python-fastapi-openapi
 ### HTTPS
 
 ```text
-cookiecutter https://github.com/btr1975/cookiecutter-python-fastapi-openapi -c 1.0.1
+cookiecutter https://github.com/naturalblaze/cookiecutter-python-django.git -c 1.0.1
 ```
 
 ### SSH
 
 ```text
-cookiecutter git@github.com:btr1975/cookiecutter-python-fastapi-openapi -c 1.0.1
+cookiecutter git@github.com:naturalblaze/cookiecutter-python-django.git -c 1.0.1
 ```
 
 ### UV
