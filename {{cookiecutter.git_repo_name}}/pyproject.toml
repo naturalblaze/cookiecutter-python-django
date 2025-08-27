@@ -7,11 +7,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "{{ cookiecutter.git_repo_name }}"
-{% if cookiecutter.package_manager == 'pip' %}
-dynamic = ["version", "readme", "dependencies"]
-{% elif cookiecutter.package_manager == 'uv' %}
-dynamic = ["version", "readme"]
-{% endif %}
+{%- if cookiecutter.package_manager == 'pip' %}
+dynamic = ["readme", "dependencies"]
+{%- elif cookiecutter.package_manager == 'uv' %}
+dynamic = ["readme"]
+{% endif -%}
+version = "{{ cookiecutter.app_version }}"
 requires-python = ">={{ cookiecutter.minimum_python_version }}"
 description = "{{ cookiecutter.app_description }}"
 keywords = [
@@ -97,7 +98,6 @@ include = [
 zip-safe = false
 
 [tool.setuptools.dynamic]
-version = {attr = "{{cookiecutter.__project_name}}.version.__version__"}
 readme = {file = "README.md", content-type = "text/markdown"}
 {% if cookiecutter.package_manager == 'pip' %}
 dependencies = {file = "requirements.txt"}
