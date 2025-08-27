@@ -1,8 +1,8 @@
 # cookiecutter-python-django
 | BRANCH | STATUS |
 | ------ |--------|
-| main | [![Unit-Testing, Coverage, Linting](https://github.com/btr1975/cookiecutter-python-fastapi-openapi/actions/workflows/test-bake.yml/badge.svg?branch=main)](https://github.com/btr1975/cookiecutter-python-fastapi-openapi/actions/workflows/test-bake.yml) |
-| develop | [![Unit-Testing, Coverage, Linting](https://github.com/btr1975/cookiecutter-python-fastapi-openapi/actions/workflows/test-bake.yml/badge.svg?branch=develop)](https://github.com/btr1975/cookiecutter-python-fastapi-openapi/actions/workflows/test-bake.yml) |
+| main |  |
+| develop | [![Unit-Testing, Coverage, Linting](https://github.com/naturalblaze/cookiecutter-python-django/actions/workflows/test-bake.yml/badge.svg)](https://github.com/naturalblaze/cookiecutter-python-django/actions/workflows/test-bake.yml) |
 
 * This is a "cookiecutter" repository designed to be used as a framework to create repository structure.
 
