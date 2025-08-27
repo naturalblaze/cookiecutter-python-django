@@ -6,6 +6,7 @@ build
 pip-audit
 black
 tomli
+pytest-django
 pytest-cov
 sphinx
 pylint
@@ -15,4 +16,4 @@ sphinxcontrib-mermaid
 httpx
 twine
 bandit
-{% if cookiecutter.use_requests == 'y' %}requests-mock{% endif %}
+ruff

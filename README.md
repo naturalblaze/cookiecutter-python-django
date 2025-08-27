@@ -1,9 +1,8 @@
-# cookiecutter-python-fastapi-openapi
-
+# cookiecutter-python-django
 | BRANCH | STATUS |
 | ------ |--------|
-| main | [![Unit-Testing, Coverage, Linting](https://github.com/btr1975/cookiecutter-python-fastapi-openapi/actions/workflows/test-bake.yml/badge.svg?branch=main)](https://github.com/btr1975/cookiecutter-python-fastapi-openapi/actions/workflows/test-bake.yml) |
-| develop | [![Unit-Testing, Coverage, Linting](https://github.com/btr1975/cookiecutter-python-fastapi-openapi/actions/workflows/test-bake.yml/badge.svg?branch=develop)](https://github.com/btr1975/cookiecutter-python-fastapi-openapi/actions/workflows/test-bake.yml) |
+| main |  |
+| develop | [![Unit-Testing, Coverage, Linting](https://github.com/naturalblaze/cookiecutter-python-django/actions/workflows/test-bake.yml/badge.svg)](https://github.com/naturalblaze/cookiecutter-python-django/actions/workflows/test-bake.yml) |
 
 * This is a "cookiecutter" repository designed to be used as a framework to create repository structure.
 
@@ -25,13 +24,13 @@ pip install cookiecutter
 ### HTTPS
 
 ```text
-cookiecutter https://github.com/btr1975/cookiecutter-python-fastapi-openapi
+cookiecutter https://github.com/naturalblaze/cookiecutter-python-django
 ```
 
 ### SSH
 
 ```text
-cookiecutter git@github.com:btr1975/cookiecutter-python-fastapi-openapi
+cookiecutter git@github.com:naturalblaze/cookiecutter-python-django.git
 ```
 
 * Use a specific version
@@ -39,13 +38,24 @@ cookiecutter git@github.com:btr1975/cookiecutter-python-fastapi-openapi
 ### HTTPS
 
 ```text
-cookiecutter https://github.com/btr1975/cookiecutter-python-fastapi-openapi -c 1.0.1
+cookiecutter https://github.com/naturalblaze/cookiecutter-python-django.git -c 1.0.1
 ```
 
 ### SSH
 
 ```text
-cookiecutter git@github.com:btr1975/cookiecutter-python-fastapi-openapi -c 1.0.1
+cookiecutter git@github.com:naturalblaze/cookiecutter-python-django.git -c 1.0.1
+```
+
+### UV
+
+```text
+uvx cookiecutter git@github.com:naturalblaze/cookiecutter-python-django.git --checkout develop
+```
+
+### UV with input file
+```text
+uvx cookiecutter -f --no-input --config-file test-repo.yml git@github.com:naturalblaze/cookiecutter-python-django.git --checkout develop
 ```
 
 4. Now you will be asked a series of questions. This is an example

@@ -1,8 +1,6 @@
 # These are the libraries required to run your app
-# They DO NOT inculde libraries needed to develop or test our app
+# They DO NOT include libraries needed to develop or test our app
 #
-fastapi
-pydantic
-uvicorn
-{% if cookiecutter.use_requests == 'y' %}requests{% endif %}
-{% if cookiecutter.use_cryptography == 'y' %}cryptography{% endif %}
+django
+{% if cookiecutter.use_django_markdownx == 'y' %}django-markdownx{% endif %}
+{% if cookiecutter.use_django_environ == 'y' %}django-environ{% endif %}

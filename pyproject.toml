@@ -1,3 +1,58 @@
+[project]
+name = "cookiecutter-python-django"
+dynamic = ["readme"]
+version = "0.1.0"
+requires-python = ">=3.10"
+description = "CookieCutter for creating Python Django project"
+keywords = [
+]
+authors = [
+  { name="Blaze Bryant", email="naturalblaze@gmail.com" },
+]
+maintainers = [
+  {name = "Blaze Bryant", email = "naturalblaze@gmail.com"},
+]
+license = "MIT"
+license-files = [
+    "LICENSE"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: POSIX",
+    "Operating System :: POSIX :: BSD",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    ]
+
+
+dependencies = [
+    "cookiecutter",
+]
+
+[dependency-groups]
+dev = [
+    "pytest-cov",
+    "pytest-cookies",
+    "pylint",
+    "pip-audit",
+    "black",
+    "bandit",
+    "pip-audit",
+    "tomli",
+]
+
+[tool.setuptools.dynamic]
+readme = {file = "README.md", content-type = "text/markdown"}
+
 [tool.pytest.ini_options]
 addopts = "--strict-markers"
 markers = [

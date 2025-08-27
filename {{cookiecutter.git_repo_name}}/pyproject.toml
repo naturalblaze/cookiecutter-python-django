@@ -7,11 +7,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "{{ cookiecutter.git_repo_name }}"
-{% if cookiecutter.package_manager == 'pip' %}
-dynamic = ["version", "readme", "dependencies"]
-{% elif cookiecutter.package_manager == 'uv' %}
-dynamic = ["version", "readme"]
-{% endif %}
+{%- if cookiecutter.package_manager == 'pip' %}
+dynamic = ["readme", "dependencies"]
+{%- elif cookiecutter.package_manager == 'uv' %}
+dynamic = ["readme"]
+{% endif -%}
+version = "{{ cookiecutter.app_version }}"
 requires-python = ">={{ cookiecutter.minimum_python_version }}"
 description = "{{ cookiecutter.app_description }}"
 keywords = [
@@ -57,11 +58,9 @@ classifiers = [
 
 {% if cookiecutter.package_manager == 'uv' %}
 dependencies = [
-    "fastapi",
-    "pydantic",
-    "uvicorn",
-    {% if cookiecutter.use_requests == 'y' %}"requests",{% endif %}
-    {% if cookiecutter.use_cryptography == 'y' %}"cryptography",{% endif %}
+    "django",
+    {% if cookiecutter.use_django_markdownx == 'y' %}"django-markdownx",{% endif %}
+    {% if cookiecutter.use_django_environ == 'y' %}"django-environ",{% endif %}
 ]
 
 [dependency-groups]
@@ -69,6 +68,7 @@ dev = [
     "black",
     "tomli",
     "pytest-cov",
+    "pytest-django",
     "sphinx",
     "pylint",
     "myst-parser",
@@ -76,21 +76,20 @@ dev = [
     "sphinxcontrib-mermaid",
     "httpx",
     "bandit",
-    {% if cookiecutter.use_requests == 'y' %}"requests-mock",{% endif %}
+    "ruff",
 ]
-{% endif %}
+{% endif -%}
 
 [project.urls]
 Documentation = "https://{{ cookiecutter.git_repo_name }}.readthedocs.io/en/latest/"
 Source = "{{ cookiecutter.git_url }}"
 Tracker = "{{ cookiecutter.git_url }}/issues"
 
-[project.scripts]
-{{ cookiecutter.git_repo_name }}-cli = "{{cookiecutter.__app_name}}:cli"
-
+# Add your project folder and app folders
 [tool.setuptools.packages.find]
 include = [
-    "{{cookiecutter.__app_name}}*",
+    "<project-name>*",
+    # "<app-name>*",
 ]
 
 # Add or remove file extensions to include the data
@@ -101,7 +100,6 @@ include = [
 zip-safe = false
 
 [tool.setuptools.dynamic]
-version = {attr = "{{cookiecutter.__app_name}}.version.__version__"}
 readme = {file = "README.md", content-type = "text/markdown"}
 {% if cookiecutter.package_manager == 'pip' %}
 dependencies = {file = "requirements.txt"}
@@ -116,9 +114,11 @@ markers = [
 [tool.coverage.run]
 command_line= "-m pytest -vvv"
 
+# Add your project folder and app folders
 [tool.coverage.report]
 include = [
-    "{{cookiecutter.__app_name}}/*"
+    "<project-name>*",
+    # "<app-name>*",
 ]
 fail_under = 70
 
@@ -141,11 +141,10 @@ exclude_dirs = [
     "docs",
 ]
 
-{% if cookiecutter.package_manager == 'uv' %}
+{%- if cookiecutter.package_manager == 'uv' %}
 # UV settings reference https://docs.astral.sh/uv/reference/settings/
-
 [tool.uv]
 keyring-provider = "subprocess"
 native-tls = true
 
-{% endif %}
+{% endif -%}

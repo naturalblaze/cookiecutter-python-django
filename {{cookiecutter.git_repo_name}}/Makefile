@@ -2,6 +2,7 @@
 # Author: Ben Trachtenberg
 # Version: 2.0.0
 #
+PROJECT = <project-name>
 
 .PHONY: all info build build-container coverage format pylint pytest gh-pages build dev-run start-container \
 	stop-container remove-container check-vuln check-security pip-export
@@ -18,6 +19,8 @@ info:
 	@echo "    format              To format the code with black"
 	@echo "    pylint              To run pylint"
 	@echo "    pytest              To run pytest with verbose option"
+	@echo "    ruff-format         To run ruff formatter"
+	@echo "    ruff-lint           To run ruff linter"
 	@echo "    start-container     To start the container"
 	@echo "    stop-container      To stop the container"
 	@echo "    remove-container    To remove the container"
@@ -35,17 +38,17 @@ coverage:
 	@pytest --cov --cov-report=html -vvv
 
 format:
-	@black {{cookiecutter.__app_name}}/
+	@black $(PROJECT)/
 	@black tests/
 
 pylint:
-	@pylint {{cookiecutter.__app_name}}/
+	@pylint $(PROJECT)/
 
 pytest:
 	@pytest --cov -vvv
 
 dev-run:
-	@python -c "from {{cookiecutter.__app_name}} import cli;cli()" start -p 8080 -r
+	@python manage.py runserver
 
 check-vuln:
 	@pip-audit -r requirements.txt
@@ -56,7 +59,7 @@ check-security:
 {% if cookiecutter.app_documents_location == 'github-pages' %}
 gh-pages:
 	@rm -rf ./docs/source/code
-	@sphinx-apidoc -o ./docs/source/code ./{{cookiecutter.__app_name}}
+	@sphinx-apidoc -o ./docs/source/code ./$(PROJECT)
 	@sphinx-build ./docs ./docs/gh-pages
 {% endif %}
 
@@ -71,17 +74,25 @@ coverage:
 	@uv run pytest --cov --cov-report=html -vvv
 
 format:
-	@uv run black {{cookiecutter.__app_name}}/
+	@uv run black $(PROJECT)/
 	@uv run black tests/
 
 pylint:
-	@uv run pylint {{cookiecutter.__app_name}}/
+	@uv run pylint $(PROJECT)/
 
 pytest:
 	@uv run pytest --cov -vvv
 
+ruff-format:
+	@uv run ruff format $(PROJECT)/
+	@uv run ruff format tests/
+
+ruff-lint:
+	@uv run ruff check $(PROJECT)/
+
+# Need to change for django
 dev-run:
-	@uv run python -c "from {{cookiecutter.__app_name}} import cli;cli()" start -p 8080 -r
+	@uv run python manage.py runserver
 
 check-security:
 	@uv run bandit -c pyproject.toml -r .
@@ -93,7 +104,7 @@ pip-export:
 {% if cookiecutter.app_documents_location == 'github-pages' %}
 gh-pages:
 	@rm -rf ./docs/source/code
-	@uv run sphinx-apidoc -o ./docs/source/code ./{{cookiecutter.__app_name}}
+	@uv run sphinx-apidoc -o ./docs/source/code ./$(PROJECT)
 	@uv run sphinx-build ./docs ./docs/gh-pages
 {% endif %}
 
