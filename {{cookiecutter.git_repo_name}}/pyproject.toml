@@ -86,7 +86,7 @@ Tracker = "{{ cookiecutter.git_url }}/issues"
 
 [tool.setuptools.packages.find]
 include = [
-    "{{cookiecutter.__app_name}}*",
+    "{{cookiecutter.__project_name}}*",
 ]
 
 # Add or remove file extensions to include the data

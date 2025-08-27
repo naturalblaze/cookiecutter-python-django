@@ -14,7 +14,7 @@
         "sphinx_rtd_theme",
         "alabaster"
     ],
-    "__app_name": "{{ cookiecutter.git_repo_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "__project_name": "{{ cookiecutter.git_repo_name.lower().replace(' ', '_').replace('-', '_') }}",
     "minimum_python_version": [
         "3.9",
         "3.10",
