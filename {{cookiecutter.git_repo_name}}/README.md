@@ -1,9 +1,11 @@
 # {{ cookiecutter.git_repo_name }}
 
+
 ## Description
 * {{ cookiecutter.app_description }}
 
-## Setup `UV`
+
+## Setup Project and test server with `UV`
 - Create Python Virtual Environment
 ```bash
 uv venv
@@ -19,10 +21,27 @@ source .venv/bin/activate
 uv sync
 ```
 
-- Initilize Django project
+- Initialize Django project
+> [!NOTE]
+> Note the `.` at the end of the command. This will create the project files and structure directly within the current directory. You do not have to use this option but if you don't then `manage.py` will be nested in the `<project-name>` folder with another `<project-name>` folder with the project files.
+
 ```bash
-django-admin startproject <project-name>
+django-admin startproject <project-name> .
 ```
+
+- Add the `<project-name>` folder name to your `pyproject.toml` in the `tool.setuptools.packages.find` and `tool.coverage.report` sections
+
+- Add the `<project-name>` folder name to your `Makefile` and `make.bat` variables
+
+- Test starting the server
+```bash
+python manage.py runserver
+```
+
+- Test server is running: [Django Local Server](http://127.0.0.1:8000/)
+
+
+## **🎉 Happy Django Developing 🎉**
 
 
 

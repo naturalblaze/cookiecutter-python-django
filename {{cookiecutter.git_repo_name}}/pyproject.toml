@@ -89,7 +89,7 @@ Tracker = "{{ cookiecutter.git_url }}/issues"
 [tool.setuptools.packages.find]
 include = [
     "<project-name>*",
-    "<app-name>*",
+    # "<app-name>*",
 ]
 
 # Add or remove file extensions to include the data
@@ -118,7 +118,7 @@ command_line= "-m pytest -vvv"
 [tool.coverage.report]
 include = [
     "<project-name>*",
-    "<app-name>*",
+    # "<app-name>*",
 ]
 fail_under = 70
 
