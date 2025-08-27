@@ -78,16 +78,18 @@ dev = [
     "bandit",
     "ruff",
 ]
-{% endif %}
+{% endif -%}
 
 [project.urls]
 Documentation = "https://{{ cookiecutter.git_repo_name }}.readthedocs.io/en/latest/"
 Source = "{{ cookiecutter.git_url }}"
 Tracker = "{{ cookiecutter.git_url }}/issues"
 
+# Add your project folder and app folders
 [tool.setuptools.packages.find]
 include = [
-    "{{cookiecutter.__project_name}}*",
+    "<project-name>*",
+    "<app-name>*",
 ]
 
 # Add or remove file extensions to include the data
@@ -112,9 +114,11 @@ markers = [
 [tool.coverage.run]
 command_line= "-m pytest -vvv"
 
+# Add your project folder and app folders
 [tool.coverage.report]
 include = [
-    "{{cookiecutter.__project_name}}/*"
+    "<project-name>*",
+    "<app-name>*",
 ]
 fail_under = 70
 
@@ -137,11 +141,10 @@ exclude_dirs = [
     "docs",
 ]
 
-{% if cookiecutter.package_manager == 'uv' %}
+{%- if cookiecutter.package_manager == 'uv' %}
 # UV settings reference https://docs.astral.sh/uv/reference/settings/
-
 [tool.uv]
 keyring-provider = "subprocess"
 native-tls = true
 
-{% endif %}
+{% endif -%}
