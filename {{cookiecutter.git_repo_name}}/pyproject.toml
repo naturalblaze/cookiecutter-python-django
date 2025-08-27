@@ -97,7 +97,7 @@ include = [
 zip-safe = false
 
 [tool.setuptools.dynamic]
-version = {attr = "{{cookiecutter.__app_name}}.version.__version__"}
+version = {attr = "{{cookiecutter.__project_name}}.version.__version__"}
 readme = {file = "README.md", content-type = "text/markdown"}
 {% if cookiecutter.package_manager == 'pip' %}
 dependencies = {file = "requirements.txt"}
@@ -114,7 +114,7 @@ command_line= "-m pytest -vvv"
 
 [tool.coverage.report]
 include = [
-    "{{cookiecutter.__app_name}}/*"
+    "{{cookiecutter.__project_name}}/*"
 ]
 fail_under = 70
 

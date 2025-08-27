@@ -13,9 +13,9 @@ IF "%option%" == "" (
 {% if cookiecutter.package_manager == 'pip' %}
 
 IF "%option%" == "all" (
-    black {{cookiecutter.__app_name}}/
+    black {{cookiecutter.__project_name}}/
     black tests/
-    pylint {{cookiecutter.__app_name}}\
+    pylint {{cookiecutter.__project_name}}\
     pytest --cov --cov-report=html -vvv
     bandit -c pyproject.toml -r .
     pip-audit -r requirements.txt
@@ -33,7 +33,7 @@ IF "%option%" == "coverage" (
 )
 
 IF "%option%" == "pylint" (
-    pylint {{cookiecutter.__app_name}}\
+    pylint {{cookiecutter.__project_name}}\
     GOTO END
 )
 
@@ -43,12 +43,12 @@ IF "%option%" == "pytest" (
 )
 
 IF "%option%" == "dev-run" (
-    python -c "from {{cookiecutter.__app_name}} import cli;cli()" start -p 8080 -r
+    python -c "from {{cookiecutter.__project_name}} import cli;cli()" start -p 8080 -r
     GOTO END
 )
 
 IF "%option%" == "format" (
-    black {{cookiecutter.__app_name}}/
+    black {{cookiecutter.__project_name}}/
     black tests/
     GOTO END
 )
@@ -66,7 +66,7 @@ IF "%option%" == "check-security" (
 {% if cookiecutter.app_documents_location == 'github-pages' %}
 IF "%option%" == "gh-pages" (
     rmdir /s /q docs\source\code
-    sphinx-apidoc -o ./docs/source/code ./{{cookiecutter.__app_name}}
+    sphinx-apidoc -o ./docs/source/code ./{{cookiecutter.__project_name}}
     sphinx-build ./docs ./docs/gh-pages
     GOTO END
 )
@@ -75,9 +75,9 @@ IF "%option%" == "gh-pages" (
 {% elif cookiecutter.package_manager == 'uv' %}
 
 IF "%option%" == "all" (
-    uv run black {{cookiecutter.__app_name}}/
+    uv run black {{cookiecutter.__project_name}}/
     uv run black tests/
-    uv run pylint {{cookiecutter.__app_name}}\
+    uv run pylint {{cookiecutter.__project_name}}\
     uv run pytest --cov --cov-report=html -vvv
     uv run bandit -c pyproject.toml -r .
     uv export --no-dev --no-emit-project --no-editable > requirements.txt
@@ -96,7 +96,7 @@ IF "%option%" == "coverage" (
 )
 
 IF "%option%" == "pylint" (
-    uv run pylint {{cookiecutter.__app_name}}\
+    uv run pylint {{cookiecutter.__project_name}}\
     GOTO END
 )
 
@@ -106,12 +106,12 @@ IF "%option%" == "pytest" (
 )
 
 IF "%option%" == "dev-run" (
-    uv run python -c "from {{cookiecutter.__app_name}} import cli;cli()" start -p 8080 -r
+    uv run python -c "from {{cookiecutter.__project_name}} import cli;cli()" start -p 8080 -r
     GOTO END
 )
 
 IF "%option%" == "format" (
-    uv run black {{cookiecutter.__app_name}}/
+    uv run black {{cookiecutter.__project_name}}/
     uv run black tests/
     GOTO END
 )
@@ -130,7 +130,7 @@ IF "%option%" == "pip-export" (
 {% if cookiecutter.app_documents_location == 'github-pages' %}
 IF "%option%" == "gh-pages" (
     rmdir /s /q docs\source\code
-    uv run sphinx-apidoc -o ./docs/source/code ./{{cookiecutter.__app_name}}
+    uv run sphinx-apidoc -o ./docs/source/code ./{{cookiecutter.__project_name}}
     uv run sphinx-build ./docs ./docs/gh-pages
     GOTO END
 )

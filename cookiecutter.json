@@ -46,7 +46,7 @@
     "__template_version": "1.0.0",
     "_new_lines": "\n",
     "_copy_without_render": [
-        "{{cookiecutter.__app_name}}/templates",
+        "{{cookiecutter.__project_name}}/templates",
         ".github"
     ],
     "__prompts__": {

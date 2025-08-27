@@ -37,11 +37,11 @@ coverage:
 	@pytest --cov --cov-report=html -vvv
 
 format:
-	@black {{cookiecutter.__app_name}}/
+	@black {{cookiecutter.__project_name}}/
 	@black tests/
 
 pylint:
-	@pylint {{cookiecutter.__app_name}}/
+	@pylint {{cookiecutter.__project_name}}/
 
 pytest:
 	@pytest --cov -vvv
@@ -58,7 +58,7 @@ check-security:
 {% if cookiecutter.app_documents_location == 'github-pages' %}
 gh-pages:
 	@rm -rf ./docs/source/code
-	@sphinx-apidoc -o ./docs/source/code ./{{cookiecutter.__app_name}}
+	@sphinx-apidoc -o ./docs/source/code ./{{cookiecutter.__project_name}}
 	@sphinx-build ./docs ./docs/gh-pages
 {% endif %}
 
@@ -73,25 +73,25 @@ coverage:
 	@uv run pytest --cov --cov-report=html -vvv
 
 format:
-	@uv run black {{cookiecutter.__app_name}}/
+	@uv run black {{cookiecutter.__project_name}}/
 	@uv run black tests/
 
 pylint:
-	@uv run pylint {{cookiecutter.__app_name}}/
+	@uv run pylint {{cookiecutter.__project_name}}/
 
 pytest:
 	@uv run pytest --cov -vvv
 
 ruff-format:
-	@uv run ruff format {{cookiecutter.__app_name}}/
+	@uv run ruff format {{cookiecutter.__project_name}}/
 	@uv run ruff format tests/
 
 ruff-lint:
-	@uv run ruff check {{cookiecutter.__app_name}}/
+	@uv run ruff check {{cookiecutter.__project_name}}/
 
 # Need to change for django
 dev-run:
-	@uv run python -c "from {{cookiecutter.__app_name}} import cli;cli()" start -p 8080 -r
+	@uv run python -c "from {{cookiecutter.__project_name}} import cli;cli()" start -p 8080 -r
 
 check-security:
 	@uv run bandit -c pyproject.toml -r .
@@ -103,7 +103,7 @@ pip-export:
 {% if cookiecutter.app_documents_location == 'github-pages' %}
 gh-pages:
 	@rm -rf ./docs/source/code
-	@uv run sphinx-apidoc -o ./docs/source/code ./{{cookiecutter.__app_name}}
+	@uv run sphinx-apidoc -o ./docs/source/code ./{{cookiecutter.__project_name}}
 	@uv run sphinx-build ./docs ./docs/gh-pages
 {% endif %}
 
