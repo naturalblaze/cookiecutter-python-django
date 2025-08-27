@@ -13,14 +13,10 @@
 import os
 import sys
 import tomli
+from datetime import date
 base_path = os.path.split(os.path.join(os.path.abspath(os.path.dirname(__name__))))[0]
 sys.path.append(base_path)
 sys.path.append(os.path.join(base_path, 'docs', '_ext'))
-
-# Reads version.py and converts to a dict of keys
-version_py = {}
-with open(os.path.join(base_path, '{{cookiecutter.__project_name}}', 'version.py'), 'r', encoding='utf-8') as f:
-    exec(f.read(), version_py)
 
 # Reads pyproject.toml and converts to python objects
 with open(os.path.join(base_path, 'pyproject.toml'), 'r', encoding='utf-8') as file:
@@ -35,9 +31,9 @@ master_doc = 'index'
 
 # -- Project information -----------------------------------------------------
 
-release = version_py['__version__']
+release = pyproject_toml["project"]["version"]
 project = f"{pyproject_toml['project']['name']} v{release}"
-copyright = version_py['__copyright__']
+copyright = f"Copyright (c) {date.today().year}, {pyproject_toml['project']['authors'][0]['name']}"
 
 # Reads authors from pyproject.toml and adds name to list
 authors = []

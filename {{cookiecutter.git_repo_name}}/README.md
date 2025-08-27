@@ -22,8 +22,7 @@ uv sync
 ```
 
 - Initialize Django project
-> [!NOTE]
-> Note the `.` at the end of the command. This will create the project files and structure directly within the current directory. You do not have to use this option but if you don't then `manage.py` will be nested in the `<project-name>` folder with another `<project-name>` folder with the project files.
+> :exclamation: Note the `.` at the end of the command. This will create the project files and structure directly within the current directory. You do not have to use this option but if you don't then `manage.py` will be nested in the `<project-name>` folder with another `<project-name>` folder with the project files.
 
 ```bash
 django-admin startproject <project-name> .
