@@ -1,8 +1,10 @@
 """Tests for cookiecutter-python-django project template."""
+
 import os
 import tomli
 
-def test_bake_project_podman(cookies, bake_project_podman_pip:dict):
+
+def test_bake_project_podman(cookies, bake_project_podman_pip: dict):
     """Test baking project with podman and pip
 
     Args:
@@ -128,7 +130,7 @@ def test_bake_project_django_addons(cookies, bake_project_django_addons: dict):
     result = cookies.bake(extra_context=bake_project_django_addons)
 
     # Reads pyproject.toml and converts to python objects
-    with open(result.project_path.joinpath("pyproject.toml"), 'r', encoding='utf-8') as file:
+    with open(result.project_path.joinpath("pyproject.toml"), "r", encoding="utf-8") as file:
         toml = file.read()
     pyproject_toml = tomli.loads(toml)
 

@@ -1,4 +1,5 @@
 """Tests for pre_gen_project.py hook functions."""
+
 import pytest
 from hooks.pre_gen_project import (
     validate_no_spaces,
