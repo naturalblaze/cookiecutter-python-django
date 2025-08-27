@@ -25,4 +25,4 @@ RUN --mount=type=ssh,required=true  \
 
 EXPOSE 8080/tcp
 
-ENTRYPOINT ["{{ cookiecutter.git_repo_name }}-cli", "start", "-p", "8080"]
+ENTRYPOINT ["python", "manage.py", "runserver"]
