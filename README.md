@@ -1,7 +1,7 @@
 # cookiecutter-python-django
 | BRANCH | STATUS |
 | ------ |--------|
-| main |  |
+| main | [![Unit-Testing, Coverage, Linting](https://github.com/naturalblaze/cookiecutter-python-django/actions/workflows/test-bake.yml/badge.svg)](https://github.com/naturalblaze/cookiecutter-python-django/actions/workflows/test-bake.yml) |
 | develop | [![Unit-Testing, Coverage, Linting](https://github.com/naturalblaze/cookiecutter-python-django/actions/workflows/test-bake.yml/badge.svg)](https://github.com/naturalblaze/cookiecutter-python-django/actions/workflows/test-bake.yml) |
 
 * This is a "cookiecutter" repository designed to be used as a framework to create repository structure.
