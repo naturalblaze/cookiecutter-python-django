@@ -1,7 +1,7 @@
 # Description
 
 Please include a summary of the change and which issue is fixed if applicable. Please also include relevant motivation 
-and context. 
+and context.
 
 List any dependencies that are required for this change.
 

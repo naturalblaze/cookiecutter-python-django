@@ -1,7 +1,7 @@
 [project]
 name = "cookiecutter-python-django"
 dynamic = ["readme"]
-version = "0.1.0"
+version = "1.0.0"
 requires-python = ">=3.10"
 description = "CookieCutter for creating Python Django project"
 keywords = [
@@ -87,6 +87,7 @@ line-length = 120
 exclude_dirs = [
     "tests",
     "venv",
+    ".venv",
     "docs",
     "{{cookiecutter.git_repo_name}}",
 ]
