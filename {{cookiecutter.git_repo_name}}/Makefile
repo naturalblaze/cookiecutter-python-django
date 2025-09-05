@@ -1,8 +1,9 @@
 # Makefile for project needs
-# Author: Ben Trachtenberg
-# Version: 2.0.0
+# Author: Ben Trachtenberg/Blaze Bryant
+# Version: 3.0.0
 #
 PROJECT = <project-name>
+# APP = <app-name>
 
 .PHONY: all info build build-container coverage format pylint pytest gh-pages build dev-run start-container \
 	stop-container remove-container check-vuln check-security pip-export
@@ -39,10 +40,13 @@ coverage:
 
 format:
 	@black $(PROJECT)/
+# 	@black $(APP)/
 	@black tests/
+	@black scripts/
 
 pylint:
 	@pylint $(PROJECT)/
+# 	@pylint $(APP)/
 
 pytest:
 	@pytest --cov -vvv
@@ -75,22 +79,27 @@ coverage:
 
 format:
 	@uv run black $(PROJECT)/
+# 	@uv run black $(APP)/
 	@uv run black tests/
+	@uv run ruff format scripts/
 
 pylint:
 	@uv run pylint $(PROJECT)/
+# 	@uv run pylint $(APP)/
 
 pytest:
 	@uv run pytest --cov -vvv
 
 ruff-format:
 	@uv run ruff format $(PROJECT)/
+# 	@uv run ruff format $(APP)/
 	@uv run ruff format tests/
+	@uv run ruff format scripts/
 
 ruff-lint:
 	@uv run ruff check $(PROJECT)/
+# 	@uv run ruff format $(APP)/
 
-# Need to change for django
 dev-run:
 	@uv run python manage.py runserver
 
@@ -105,6 +114,7 @@ pip-export:
 gh-pages:
 	@rm -rf ./docs/source/code
 	@uv run sphinx-apidoc -o ./docs/source/code ./$(PROJECT)
+# 	@uv run sphinx-apidoc -o ./docs/source/code ./$(APP)
 	@uv run sphinx-build ./docs ./docs/gh-pages
 {% endif %}
 

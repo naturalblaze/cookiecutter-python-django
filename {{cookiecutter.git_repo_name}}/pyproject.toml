@@ -59,6 +59,7 @@ classifiers = [
 {% if cookiecutter.package_manager == 'uv' %}
 dependencies = [
     "django",
+    "django-extensions",
     {% if cookiecutter.use_django_markdownx == 'y' %}"django-markdownx",{% endif %}
     {% if cookiecutter.use_django_environ == 'y' %}"django-environ",{% endif %}
 ]
@@ -77,6 +78,7 @@ dev = [
     "httpx",
     "bandit",
     "ruff",
+    "pytest-dotenv",
 ]
 {% endif -%}
 
@@ -106,7 +108,10 @@ dependencies = {file = "requirements.txt"}
 {% endif %}
 
 [tool.pytest.ini_options]
-addopts = "--strict-markers"
+env_files = [
+    "tests/data/.test-env"
+]
+addopts = "--ds=<project-name>.settings --reuse-db --import-mode=importlib --strict-markers --cov-report term-missing"
 markers = [
     "place_holder: marks tests as place_holder (deselect with -m 'not place_holder')",
 ]
@@ -117,13 +122,16 @@ command_line= "-m pytest -vvv"
 # Add your project folder and app folders
 [tool.coverage.report]
 include = [
-    "<project-name>*",
-    # "<app-name>*",
+    "<project-name>/*",
+    # "<app-name>/*",
 ]
 fail_under = 70
 
 [tool.pylint]
 max-line-length = 120
+ignore-paths = [
+    ".*migrations.*$",
+]
 # This allows pylint to complain on FIXME and XXX notes
 notes = [
     "FIXME",
@@ -134,11 +142,22 @@ fail-under = 9.9
 [tool.black]
 line-length = 120
 
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+
 [tool.bandit]
 exclude_dirs = [
     "tests",
     "venv",
+    ".venv",
     "docs",
+    "scripts",
 ]
 
 {%- if cookiecutter.package_manager == 'uv' %}

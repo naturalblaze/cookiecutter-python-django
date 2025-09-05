@@ -134,3 +134,8 @@ dmypy.json
 # No vscode
 .vscode/
 
+# No temp_*.py files
+temp_*.py
+
+# Django
+*migrations/

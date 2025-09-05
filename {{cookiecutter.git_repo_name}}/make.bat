@@ -1,11 +1,12 @@
 @ECHO OFF
 REM Makefile for project needs
-REM Author: Ben Trachtenberg
-REM Version: 2.0.0
+REM Author: Ben Trachtenberg/Blaze Bryant
+REM Version: 3.0.0
 REM
 
 SET option=%1
 SET PROJECT=<project-name>
+@REM SET APP=<app-name>
 
 IF "%option%" == "" (
     GOTO BAD_OPTIONS
@@ -15,8 +16,11 @@ IF "%option%" == "" (
 
 IF "%option%" == "all" (
     black %PROJECT%/
+    @REM black %APP%/
     black tests/
+    black scripts/
     pylint %PROJECT%\
+    @REM pylint %APP%\
     pytest --cov --cov-report=html -vvv
     bandit -c pyproject.toml -r .
     pip-audit -r requirements.txt
@@ -44,13 +48,15 @@ IF "%option%" == "pytest" (
 )
 
 IF "%option%" == "dev-run" (
-    python -c "from %PROJECT% import cli;cli()" start -p 8080 -r
+    python manage.py runserver
     GOTO END
 )
 
 IF "%option%" == "format" (
     black %PROJECT%/
+    @REM black %APP%/
     black tests/
+    black scripts/
     GOTO END
 )
 
@@ -68,6 +74,7 @@ IF "%option%" == "check-security" (
 IF "%option%" == "gh-pages" (
     rmdir /s /q docs\source\code
     sphinx-apidoc -o ./docs/source/code ./%PROJECT%
+    @REM sphinx-apidoc -o ./docs/source/code ./%APP%
     sphinx-build ./docs ./docs/gh-pages
     GOTO END
 )
@@ -77,8 +84,11 @@ IF "%option%" == "gh-pages" (
 
 IF "%option%" == "all" (
     uv run black %PROJECT%/
+    @REM uv run black %APP%/
     uv run black tests/
+    uv run black scripts/
     uv run pylint %PROJECT%\
+    @REM uv run pylint %APP%\
     uv run pytest --cov --cov-report=html -vvv
     uv run bandit -c pyproject.toml -r .
     uv export --no-dev --no-emit-project --no-editable > requirements.txt
@@ -98,6 +108,7 @@ IF "%option%" == "coverage" (
 
 IF "%option%" == "pylint" (
     uv run pylint %PROJECT%\
+    @REM uv run pylint %APP%\
     GOTO END
 )
 
@@ -113,7 +124,9 @@ IF "%option%" == "dev-run" (
 
 IF "%option%" == "format" (
     uv run black %PROJECT%/
+    @REM uv run black %APP%/
     uv run black tests/
+    uv run black scripts/
     GOTO END
 )
 
@@ -132,6 +145,7 @@ IF "%option%" == "pip-export" (
 IF "%option%" == "gh-pages" (
     rmdir /s /q docs\source\code
     uv run sphinx-apidoc -o ./docs/source/code ./%PROJECT%
+    @REM uv run sphinx-apidoc -o ./docs/source/code ./%APP%
     uv run sphinx-build ./docs ./docs/gh-pages
     GOTO END
 )
